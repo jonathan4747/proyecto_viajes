@@ -1,0 +1,40 @@
+@charset "ISO-8859-1";
+
+.titulo{
+	display:flex;
+	justify-content:space-evenly;
+}
+.registro{
+		display:flex;
+		justify-content:center;
+}
+.form2{
+	border:4px solid black;
+	padding:10px 15px 10px 15px;
+
+}
+.form2>div{
+	display:flex;
+	flex-direction: column;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+#descripcion{
+	 font: 1em sans-serif;
+  	font-size: small;
+}
+.button2{
+	width:50px;
+	margin-left: 190px;
+	border:2px solid black;
+	background-color:rgb(165, 105, 189);
+	color:white;
+	cursor:pointer;
+}
+.button1{
+	background-color:rgb(165, 105, 189);
+	color:white;
+	cursor:pointer;
+	border:2px solid black;
+	margin-top:30px;
+}

@@ -1,7 +1,7 @@
 package com.codingdojo.servicios;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +22,26 @@ public class ServicioViaje {
 	//crear un gasto
 	public Viaje CreateViaje(Viaje nuevoViaje) {
 		return repositorioViaje.save(nuevoViaje);
+	}
+	//Encontrar el id para la edicion
+	public Viaje EncontrarId(Long id) {
+		Optional<Viaje> opotionalViaje=repositorioViaje.findById(id); 
+		if(opotionalViaje.isPresent()) {
+			return opotionalViaje.get(); 
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public void updateViaje( Viaje editarViaje ) {
+		
+		repositorioViaje.actualizaviaje( editarViaje.getNombregasto(), 
+										 editarViaje.getVendedor(), 
+										 editarViaje.getMonto(), 
+										 editarViaje.getDescripcion(),
+										 editarViaje.getId()
+										  ); 								   
 	}
 	
 }

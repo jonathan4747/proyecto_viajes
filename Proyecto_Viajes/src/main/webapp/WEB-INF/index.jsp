@@ -20,6 +20,7 @@
 				            <th>Expense</th>
 				            <th>Vendor</th>
 				            <th>Amount</th>
+				            <th>Actions</th>
 				        </tr>
 				    </thead>
 			    <tbody>
@@ -28,6 +29,7 @@
 									<th><c:out value="${viajes.getNombregasto()}"/></th> 
 									<th><c:out value="${viajes.getVendedor()}"/></th> 
 									<th><c:out value="${viajes.getMonto()}"/></th>
+									<th><a href="/expenses/edit/${viajes.getId()}">Edit</a></th>
 						</tr>
 			         </c:forEach>
 			    </tbody>
@@ -58,7 +60,7 @@
 						<form:label path="monto" for="monto">
 							Amount:
 						</form:label>
-						<form:input path="monto" type="text" name="monto" id="monto" />
+						<form:input path="monto" type="number" name="monto" id="monto" value="null" min="1" />
 						<form:errors path="monto"/>
 					</div>
 					<div>

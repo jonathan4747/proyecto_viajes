@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 @Entity
 @Table (name="viajes")
 public class Viaje {
@@ -34,6 +36,7 @@ public class Viaje {
 	}
 
 	public Viaje(String nombregasto, String vendedor, long monto, String descripcion) {
+		
 		this.nombregasto = nombregasto;
 		this.vendedor = vendedor;
 		this.monto = monto;
