@@ -21,6 +21,9 @@ public interface RepositorioViaje extends CrudRepository<Viaje , Long> {
 	Viaje findById(long id);
 	
 	@Transactional
+	Long deleteById( long id );
+	
+	@Transactional
 	@Modifying
 	@Query(value="UPDATE viajes "+ "SET nombregasto = :nombregasto, vendedor = :vendedor, monto = :monto, descripcion = :descripcion " +
 			"WHERE id = :id", nativeQuery = true )

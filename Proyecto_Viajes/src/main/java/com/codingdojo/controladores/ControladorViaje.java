@@ -81,5 +81,20 @@ public class ControladorViaje {
 		}
 	}
 	
+	@RequestMapping( value = "/expenses/eliminar/{id}", method = RequestMethod.DELETE )
+	public String eliminarGasto( @PathVariable("id") long id ) {
+		servicioViaje.deleteFromId(id);
+		return "redirect:/expenses";
+	}
+	
+	@RequestMapping( value = "/expenses/{id}", method = RequestMethod.GET )
+	public String Ver(@PathVariable("id") Long id,HttpSession session) {
+		Viaje viaje = servicioViaje.EncontrarId(id);
+		session.setAttribute("nombregasto", viaje.getNombregasto());
+		session.setAttribute("vendedor",viaje.getVendedor());
+		session.setAttribute("monto", viaje.getMonto());
+		session.setAttribute("descripcion", viaje.getDescripcion());
+		return "vista.jsp";
+	}
 }
 

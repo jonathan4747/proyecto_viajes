@@ -23,17 +23,17 @@ public class ServicioViaje {
 	public Viaje CreateViaje(Viaje nuevoViaje) {
 		return repositorioViaje.save(nuevoViaje);
 	}
-	//Encontrar el id para la edicion
+	//Encontrar el id para la edicion y para verlo
 	public Viaje EncontrarId(Long id) {
 		Optional<Viaje> opotionalViaje=repositorioViaje.findById(id); 
 		if(opotionalViaje.isPresent()) {
 			return opotionalViaje.get(); 
-		}
+		} 
 		else {
 			return null;
 		}
 	}
-	
+	//Editar
 	public void updateViaje( Viaje editarViaje ) {
 		
 		repositorioViaje.actualizaviaje( editarViaje.getNombregasto(), 
@@ -42,6 +42,10 @@ public class ServicioViaje {
 										 editarViaje.getDescripcion(),
 										 editarViaje.getId()
 										  ); 								   
+	}
+	//Eliminar
+	public Long deleteFromId( long id ) {
+		return repositorioViaje.deleteById(id);
 	}
 	
 }

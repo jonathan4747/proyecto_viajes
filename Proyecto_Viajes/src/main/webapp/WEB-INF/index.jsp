@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Read Share</title>
-		<link rel="stylesheet" href="/css/index.css"/>
+		<link rel="stylesheet" href="/css/pagina.css"/>
 	</head>
 	<body>
 		<div >
@@ -26,10 +26,18 @@
 			    <tbody>
 			         <c:forEach var="viajes" items="${listaViajes}">
 			         	<tr>		
-									<th><c:out value="${viajes.getNombregasto()}"/></th> 
+									<th><a href="/expenses/${viajes.getId()}"><c:out value="${viajes.getNombregasto()}"/></a></th> 
 									<th><c:out value="${viajes.getVendedor()}"/></th> 
-									<th><c:out value="${viajes.getMonto()}"/></th>
-									<th><a href="/expenses/edit/${viajes.getId()}">Edit</a></th>
+									<th>$<c:out value="${viajes.getMonto()}"/></th>
+									<th class="actions">
+										<a href="/expenses/edit/${viajes.getId()}">Edit</a>
+										<form action="/expenses/eliminar/${viajes.getId()}" method="POST" class="form2">
+											<input type="hidden" name="_method" value="DELETE" />
+											<button type="submit" class="button2">
+														<Strong>Delete</Strong> 
+											</button>
+										</form>
+									</th>
 						</tr>
 			         </c:forEach>
 			    </tbody>
@@ -41,20 +49,20 @@
 				Add an Expense
 			</h1>
 			<div class="registro">
-				<form:form method="POST" action="/expenses" modelAttribute="viaje">
+				<form:form method="POST" action="/expenses" modelAttribute="viaje" class="form1">
 					<div>
 						<form:label path="nombregasto" for="nombregasto">
 							Expense Name:
 						</form:label>
 						<form:input path="nombregasto" type="text" name="nombregasto" id="nombregasto" />
-						<form:errors path="nombregasto"/>
+						<form:errors path="nombregasto" class="error"/>
 					</div>
 					<div>
 						<form:label path="vendedor" for="vendedor">
 							Vendor:
 						</form:label>
 						<form:input path="vendedor" type="text" name="vendedor" id="vendedor" />
-						<form:errors path="vendedor"/>
+						<form:errors path="vendedor" class="error"/>
 					</div>
 					<div>
 						<form:label path="monto" for="monto">
@@ -68,9 +76,9 @@
 							Description:
 						</form:label>
 						<form:textarea path="descripcion" type="text" name="descripcion" id="descripcion" />
-						<form:errors path="descripcion"/>
+						<form:errors path="descripcion" class="error"/>
 					</div>
-					<button type="submit">
+					<button type="submit" class="button1">
 						Submit
 					</button>
 				</form:form>

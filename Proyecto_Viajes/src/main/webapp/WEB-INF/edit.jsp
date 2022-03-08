@@ -18,7 +18,7 @@
 			<div>
 				<form action="/logout" method="GET" class="form1">
 					<button type="submit" class="button1">
-						Go back
+						<strong>Go back</strong>
 					</button>
 				</form>
 			</div>
@@ -31,14 +31,14 @@
 						Expense Name:
 					</form:label>
 					<form:input path="nombregasto" type="text" name="nombregasto" id="nombregasto" placeholder="${nombregasto}"  />
-					<form:errors path="nombregasto"/>
+					<form:errors path="nombregasto" class="error"/>
 				</div>
 				<div>
 					<form:label path="vendedor" for="vendedor">
 						Vendor:
 					</form:label>
 					<form:input path="vendedor" type="text" name="vendedor" id="vendedor" placeholder="${vendedor}"  />
-					<form:errors path="vendedor"/>
+					<form:errors path="vendedor" class="error" />
 				</div>
 				<div>
 					<form:label path="monto" for="monto">
@@ -52,7 +52,7 @@
 						Description:
 					</form:label>
 					<form:textarea path="descripcion" type="text" name="descripcion" id="descripcion"  placeholder="${descripcion}" value="null"/>
-					<form:errors path="descripcion"/>
+					<form:errors path="descripcion"  class="error"/>
 				</div>
 				<button type="submit" class="button2">
 					Submit
